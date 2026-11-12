@@ -1,12 +1,15 @@
+import { addMeal } from '@/storage/meals'
 import { useState } from 'react';
 import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    Alert,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 import { colors, globalStyles } from '@/styles/global';
+import { router } from 'expo-router'
 
 export default function AddMealScreen() {
   const [name, setName] = useState('');
@@ -15,9 +18,30 @@ export default function AddMealScreen() {
   const [carbs, setCarbs] = useState('');
   const [fat, setFat] = useState('');
 
-  const handleAddMeal = () => {
-    console.log({ name, calories, protein, carbs, fat });
-  };
+  const handleAddMeal = async () => {
+    
+        if (!name || !calories) {
+            Alert.alert('Error', 'Please enter a meal name and calories');
+            return;
+        }
+
+        await addMeal({
+            name,
+            calories: Number(calories),
+            protein: Number(protein) || 0,
+            carbs: Number(carbs) || 0,
+            fat: Number(fat) || 0
+        });
+
+        Alert.alert('Success', 'Meal added successfully');
+        
+        setName('');
+        setCalories('');
+        setCarbs('');
+        setFat('');
+
+        router.push('/');
+    };
 
   return (
     <View style={globalStyles.container}>
