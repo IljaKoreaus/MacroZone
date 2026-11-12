@@ -19,7 +19,7 @@ export default function TabLayout() {
         name='index'
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size } : {color: any, size: number}) => (
             <Ionicons name='home' size={size} color={color} />
           ),
         }}
@@ -28,7 +28,7 @@ export default function TabLayout() {
         name='add-meal'
         options={{
           title: 'Add Meal',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size } : {color: any, size: number}) => (
             <Ionicons name='add-circle' size={size} color={color} />
           ),
         }}
@@ -37,7 +37,7 @@ export default function TabLayout() {
         name='meals'
         options={{
           title: 'All Meals',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size } : {color: any, size: number}) => (
             <Ionicons name='list' size={size} color={color} />
           ),
         }}
