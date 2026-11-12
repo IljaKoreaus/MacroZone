@@ -1,17 +1,13 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, Platform, StyleSheet, ScrollView } from "react-native";
+import * as Device from "expo-device";
+import { globalStyles } from "../styles/global";
+import HomeHeader from "../components/HomeHeader";
 
-export default function Index() {
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
-    </View>
+    <ScrollView style={globalStyles.container}>
+      <Text style={globalStyles.title}>MacroZone</Text>
+      <HomeHeader />
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
