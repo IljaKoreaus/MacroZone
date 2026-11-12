@@ -39,8 +39,9 @@ export default function AddMealScreen() {
         setCalories('');
         setCarbs('');
         setFat('');
+        setProtein('');
 
-        router.push('/');
+        router.navigate('/');
     };
 
   return (

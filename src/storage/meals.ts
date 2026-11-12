@@ -10,7 +10,7 @@ export type Meal = {
   createdAt: string;
 };
 
-const MEALS_KEY = 'meals';
+export const MEALS_KEY = 'meals';
 
 export const getMeals = async (): Promise<Meal[]> => {
   const data = await AsyncStorage.getItem(MEALS_KEY);
