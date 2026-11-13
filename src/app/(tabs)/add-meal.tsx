@@ -11,6 +11,9 @@ import {
 import { colors, globalStyles } from '@/styles/global';
 import { router } from 'expo-router'
 
+// Haptic Feedback
+import * as Haptics from 'expo-haptics';
+
 export default function AddMealScreen() {
   const [name, setName] = useState('');
   const [calories, setCalories] = useState('');
@@ -33,6 +36,7 @@ export default function AddMealScreen() {
             fat: Number(fat) || 0
         });
 
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
         Alert.alert('Success', 'Meal added successfully');
         
         setName('');
